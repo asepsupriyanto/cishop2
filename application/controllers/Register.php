@@ -23,7 +23,7 @@ class Register extends MY_Controller
         if (!$_POST) {
             $input = (object) $this->register->getDefaultValues();
         } else {
-            $input = (object) $this->input->$this->input->post(null, true);
+            $input = (object) $this->input->post(null, true);
         }
 
         if (!$this->register->validate()) {
