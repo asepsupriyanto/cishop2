@@ -12,40 +12,39 @@ function getDropdownList($table, $columns)
 
         return $options;
     }
+}
+return $options = ['' => '- Select -'];
 
-    return $options = ['' => '- Select -'];
+function getCategories()
+{
+    $CI     = &get_instance();
+    $query  = $CI->db->get('category')->result();
+    return $query;
+}
 
-    function getCategories()
-    {
-        $CI     = &get_instance();
-        $query  = $CI->db->get('category')->result();
+function getCart()
+{
+    $CI     = &get_instance();
+    $userId = $CI->session->userdata('id');
+
+    if ($userId) {
+        $query  = $CI->db->where('id_user $userId')->count_all_result('cart');
         return $query;
     }
+    return false;
+}
 
-    function getCart()
-    {
-        $CI     = &get_instance();
-        $userId = $CI->session->userdata('id');
+function hashEncrypt($input)
+{
+    $hash   = password_hash($input, PASSWORD_DEFAULT);
+    return $hash;
+}
 
-        if ($userId) {
-            $query  = $CI->db->where('id_user $userId')->count_all_result('cart');
-            return $query;
-        }
+function hashEncryptVerify($input, $hash)
+{
+    if (password_verify($input, $hash)) {
+        return true;
+    } else {
         return false;
-    }
-
-    function hashEncrypt($input)
-    {
-        $hash   = password_hash($input, PASSWORD_DEFAULT);
-        return $hash;
-    }
-
-    function hasEncryptVerify($input, $hash)
-    {
-        if (password_verify($input, $hash)) {
-            return true;
-        } else {
-            return false;
-        }
     }
 }
