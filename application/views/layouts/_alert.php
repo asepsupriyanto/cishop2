@@ -1,5 +1,5 @@
 <?php
-$success    = $this->session->flashdata('succes');
+$success    = $this->session->flashdata('success');
 $error      = $this->session->flashdata('error');
 $warning    = $this->session->flashdata('warning');
 
