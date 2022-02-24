@@ -14,9 +14,9 @@
 
 
     <!-- Bootstrap core CSS -->
-    <link href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= base_url('/assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet') ?>">
     <!-- Fontawesome CSS -->
-    <link rel="stylesheet" href="assets/libs/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url('/assets/libs/fontawesome/css/all.min.css') ?>">
 
 
 
@@ -30,7 +30,7 @@
     <meta name="theme-color" content="#7952b3">
 
     <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="<?= base_url('/assets/css/app.css') ?>">
 </head>
 
 <body>
@@ -43,9 +43,9 @@
     <?php $this->load->view($page); ?>
     <!-- End Content -->
 
-    <script src="assets/libs/jquery/jquery-3.6.0.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="<?= base_url('/assets/libs/jquery/jquery-3.6.0.min.js') ?>"></script>
+    <script src="<?= base_url('/assets/libs/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/app.js') ?>"></script>
 
 </body>
 
