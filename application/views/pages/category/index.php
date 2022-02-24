@@ -4,7 +4,8 @@
         <div class="col-md-10 mx-auto">
             <div class="card">
                 <div class="card-header">
-                    <span>Kategori </span><a href="admin-category-form.html" class="btn btn-sm btn-secondary">Tambah</a>
+                    <span>Kategori </span>
+                    <a href="<?= base_url('category/create') ?>" class="btn btn-sm btn-secondary">Tambah</a>
                     <div class="float-right">
                         <form action="#">
                             <div class="input-group">

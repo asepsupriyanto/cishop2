@@ -32,16 +32,16 @@ class Category extends MY_Controller
     public function create()
     {
         if (!$_POST) {
-            $input = (object) $this->category->getDefaulValues();
+            $input = (object) $this->category->getDefaultValues();
         } else {
-            //sesuai inputan terakhir
+
             $input = (object) $this->input->post(null, true);
         }
 
         if (!$this->category->validate()) {
             $data['title']          = 'Tambah Kategori';
             $data['input']          = $input;
-            $data['form_action']    = 'category/create';
+            $data['form_action']    = base_url('category/create');
             $data['page']           = 'pages/category/form';
 
             $this->view($data);
