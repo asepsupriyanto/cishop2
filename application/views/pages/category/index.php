@@ -7,19 +7,20 @@
                     <span>Kategori </span>
                     <a href="<?= base_url('category/create') ?>" class="btn btn-sm btn-secondary">Tambah</a>
                     <div class="float-right">
-                        <form action="#">
-                            <div class="input-group">
-                                <input type="text" name="keyword" id="" class="form-control form-control-sm text-center" placeholder="Cari">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary btn-sm" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <a href="#" class="btn btn-primary btn-sm">
-                                        <i class="fas fa-eraser"></i>
-                                    </a>
-                                </div>
+                        <?= form_open(base_url('category/search'), ['method' => 'POST']) ?>
+                        <div class="input-group">
+                            <input type="text" name="keyword" id="" class="form-control form-control-sm text-center" placeholder="Cari" value="<?=
+                                                                                                                                                $this->session->userdata('keyword') ?>">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary btn-sm" type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                                <a href="<?= base_url('category/reset') ?>" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-eraser"></i>
+                                </a>
                             </div>
-                        </form>
+                        </div>
+                        <?= form_close() ?>
                     </div>
                 </div>
                 <div class="card-body">
@@ -43,9 +44,7 @@
                                         <?= form_open("category/delete/$row->id", ['method' => 'POST']) ?>
                                         <?= form_hidden('id', $row->id) ?>
                                         <a href="<?= base_url("category/edit/$row->id") ?>">
-                                            <button class="btn btn-sm">
-                                                <i class="fas fa-edit text-info"></i>
-                                            </button>
+                                            <i class="fas fa-edit text-info"></i>
                                         </a>
                                         <button class="btn btn-sm" type="submit" onclick="return confirm('Apakah yakin ingin menghapus?')">
                                             <i class="fas fa-trash text-danger"></i>
